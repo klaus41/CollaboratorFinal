@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/html" href="~/Content/Main.css" />
+    <title>@ViewBag.Title Collaborator - Elite IT</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" @Html.ActionLink("Collaborator", "Index", "Home")></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar" style="font-size:17px;">
+                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Temaer", "Index", "Themes")</li>
+                    <li>@Html.ActionLink("Tilføj konto", "Index", "Clients")</li>
+                    <li><a href="#">Flere ting...</a></li>
+                </ul>
+                <div style="position:absolute; bottom:0%;left:0%;padding:10px;">
+                    <a href="http://www.eliteit.dk">
+                        <img src="http://i.imgur.com/Vahnd6Q.jpg" style="max-width:100% ;max-height:100%; opacity: 0.5;"   />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

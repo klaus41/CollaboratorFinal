@@ -20,14 +20,18 @@ namespace WebAPI.Controllers
         // GET: api/Themes
         public IQueryable<Theme> GetThemes()
         {
-            return db.Themes;
+            return db.Themes.Include(c=>c.SearchCriterias);
         }
 
         // GET: api/Themes/5
         [ResponseType(typeof(Theme))]
         public IHttpActionResult GetTheme(int id)
         {
-            Theme theme = db.Themes.Find(id);
+           // Theme theme = db.Themes.Find(id);
+            Theme theme = db.Themes.Include(s => s.SearchCriterias)
+                .Include(m=>m.Emails)
+                .SingleOrDefault(x => x.ID == id);
+
             if (theme == null)
             {
                 return NotFound();

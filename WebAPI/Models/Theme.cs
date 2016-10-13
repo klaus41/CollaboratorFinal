@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
 
 namespace WebAPI.Models
 {
@@ -21,6 +18,8 @@ namespace WebAPI.Models
         public int ID { get; set; }
         [DataMember]
         public virtual ICollection<SearchCriteria> SearchCriterias { get; set; }
+        [DataMember]
+        public virtual  ICollection<Email> Emails { get; set; }
         [DataMember]
         public string Title { get; set; }
 

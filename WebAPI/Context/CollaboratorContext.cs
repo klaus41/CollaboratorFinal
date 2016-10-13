@@ -11,7 +11,7 @@ namespace WebAPI.Context
     {
         public CollaboratorContext(): base("Collaborator")
         {
-            //Configuration.LazyLoadingEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer(new ContextInitializer());
         }
         public DbSet<Email> Emails { get; set; }

@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Webui;
+using WebUI;
 
 namespace WebUI.Controllers
 {
+
     public class EmailController : Controller
     {
+        ServiceGateway _gateway = new ServiceGateway();
+
         // GET: Email
         public ActionResult Index()
         {
-            return View();
+            return View(_gateway.GetEmails());
         }
 
         // GET: Email/Details/5

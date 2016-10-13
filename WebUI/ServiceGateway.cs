@@ -5,28 +5,35 @@ using System.Net.Http.Headers;
 using System.Web.Configuration;
 using WebUI.Models;
 
-namespace CollaboratorUI
+namespace Webui
 {
     public class ServiceGateway
     {
         public IEnumerable<Email> GetEmails()
-            {
-                HttpClient client = GetHttpClient();
-                HttpResponseMessage response = client.GetAsync("api/emails/").Result;
-                var emails = response.Content.ReadAsAsync<IEnumerable<Email>>().Result;
-                return emails;
-            }
+        {
+            HttpClient client = GetHttpClient();
+            HttpResponseMessage response = client.GetAsync("api/emails/").Result;
+            var emails = response.Content.ReadAsAsync<IEnumerable<Email>>().Result;
+            return emails;
+        }
 
-            public IEnumerable<Theme> GetThemes()
-            {
-                HttpClient client = GetHttpClient();
-                
-                HttpResponseMessage response = client.GetAsync("api/themes/").Result;
-                var themes = response.Content.ReadAsAsync<IEnumerable<Theme>>().Result;
-                return themes;
-            }
+        public IEnumerable<Theme> GetThemes()
+        {
+            HttpClient client = GetHttpClient();
 
-        
+            HttpResponseMessage response = client.GetAsync("api/themes/").Result;
+            var themes = response.Content.ReadAsAsync<IEnumerable<Theme>>().Result;
+            return themes;
+        }
+
+        public Theme GetTheme(int id)
+        {
+            HttpClient client = GetHttpClient();
+
+            HttpResponseMessage response = client.GetAsync("api/themes/" + id).Result;
+            var theme = response.Content.ReadAsAsync<Theme>().Result;
+            return theme;
+        }
 
         private HttpClient GetHttpClient()
         {
@@ -48,4 +55,4 @@ namespace CollaboratorUI
         }
 
     }
-    }
+}

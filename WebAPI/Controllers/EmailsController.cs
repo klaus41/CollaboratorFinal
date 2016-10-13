@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
         // GET: api/Emails
         public IQueryable<Email> GetEmails()
         {
-            return db.Emails;
+            return db.Emails.Include(s=>s.SearchCriteria);
         }
 
         // GET: api/Emails/5

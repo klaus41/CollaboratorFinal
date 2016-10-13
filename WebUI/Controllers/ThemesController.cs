@@ -1,13 +1,5 @@
-﻿
-using CollaboratorUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Web;
-using System.Web.Configuration;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Webui;
 
 namespace WebUI.Controllers
 {
@@ -25,7 +17,7 @@ namespace WebUI.Controllers
         // GET: Themes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_gateway.GetTheme(id));
         }
 
         // GET: Themes/Create

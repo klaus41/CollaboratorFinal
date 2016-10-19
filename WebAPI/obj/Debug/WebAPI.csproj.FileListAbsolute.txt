@@ -179,3 +179,4 @@ D:\EliteIT\Collaboration v2\WebAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.
 D:\EliteIT\Collaboration v2\WebAPI\bin\System.Web.Http.Owin.xml
 D:\EliteIT\Collaboration v2\WebAPI\obj\Debug\WebAPI.dll
 D:\EliteIT\Collaboration v2\WebAPI\obj\Debug\WebAPI.pdb
+D:\EliteIT\Collaboration v2\WebAPI\obj\Debug\WebAPI.csprojResolveAssemblyReference.cache

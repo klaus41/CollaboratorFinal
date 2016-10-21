@@ -243,6 +243,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmailsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Navision\ContactListApiController.cs" />
     <Compile Include="Controllers\SearchCriteriasController.cs" />
     <Compile Include="Controllers\ThemesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -339,6 +340,13 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Navision\Navision.csproj">
+      <Project>{7252a380-509b-4352-8584-1b75fe2de511}</Project>
+      <Name>Navision</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

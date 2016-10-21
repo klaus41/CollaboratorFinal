@@ -225,6 +225,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EliteIT.png" />
     <Content Include="Content\lte\css\AdminLTE.css" />
     <Content Include="Content\lte\css\AdminLTE.min.css" />
     <Content Include="Content\lte\css\skins\skin-black-light.css" />
@@ -1188,14 +1189,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Themes\Index.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
-    <Content Include="Views\Themes\SpecificTheme.cshtml" />
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Themes\Details.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
-    <Content Include="Views\Shared\ViewPage1.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

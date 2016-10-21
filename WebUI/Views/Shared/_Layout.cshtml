@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborator - Elite IT</title>
-
-
     <!-- Bootstrap 3.3.6 -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
@@ -15,10 +13,9 @@
     <!-- Theme style -->
     <link href="~/Content/lte/css/AdminLTE.css" rel="stylesheet" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
-    <link href="~/Content/lte/css/skins/skin-blue-light.css" rel="stylesheet" />
-
+    <link href="~/Content/lte/css/skins/skin-red.css" rel="stylesheet" />
 </head>
-<body class="hold-transition skin-blue-light sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <header class="main-header">
@@ -81,10 +78,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <strong>Copyright &copy; 2014-2016 <a href="http://www.eliteit.dk">Elite IT ApS</a></strong>
-            </div>
-            &nbsp;
+            @RenderPage("_Footer.cshtml")
         </footer>
         <!-- Add the sidebar's background. This div must be placed
              immediately after the control sidebar -->

@@ -61,3 +61,4 @@ D:\EliteIT\Collaboration v2\Navision\bin\zh-Hans\System.Spatial.resources.dll
 D:\EliteIT\Collaboration v2\Navision\bin\zh-Hant\System.Spatial.resources.dll
 D:\EliteIT\Collaboration v2\Navision\obj\Debug\Navision.dll
 D:\EliteIT\Collaboration v2\Navision\obj\Debug\Navision.pdb
+D:\EliteIT\Collaboration v2\Navision\obj\Debug\Navision.csprojResolveAssemblyReference.cache

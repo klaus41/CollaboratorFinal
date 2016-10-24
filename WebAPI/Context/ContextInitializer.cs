@@ -18,6 +18,10 @@ namespace WebAPI.Context
             SearchCriteria sc2 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Pro Nummer 3409" });
             SearchCriteria sc3 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Eltavle" });
             SearchCriteria sc4 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Pro Automatic" });
+            SearchCriteria sc5 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Subject" });
+            SearchCriteria sc6 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Klaus" });
+            SearchCriteria sc7 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = new DateTime(2016, 8, 7).ToString() });
+            SearchCriteria sc8 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Ronni" });
 
 
 
@@ -48,6 +52,14 @@ namespace WebAPI.Context
             Theme theme1 = context.Themes.Add(new Theme() { Title = "Pro Nummer 9045", SearchCriterias = { sc1, sc3 } });
             Theme theme2 = context.Themes.Add(new Theme() { Title = "Pro Nummer 3409", SearchCriterias = { sc2 } });
             Theme theme3 = context.Themes.Add(new Theme() { Title = "Pro Automatic", SearchCriterias = { sc4 } });
+            Theme theme4 = context.Themes.Add(new Theme() { Title = "Ronni og Klaus", SearchCriterias = { sc6, sc8 } });
+            Theme theme5 = context.Themes.Add(new Theme() { Title = "Subject", SearchCriterias = { sc5 } });
+            Theme theme6 = context.Themes.Add(new Theme() { Title = "2016, 8, 7", SearchCriterias = { sc7 } });
+
+
+
+            EmailAccount account1 = context.EmailAccounts.Add(new EmailAccount() { EmailAddress = "Klaus@eliteit.dk", Password = "Kg240789." });
+            EmailAccount account2 = context.EmailAccounts.Add(new EmailAccount() { EmailAddress = "ronni@eliteit.dk", Password = "oz1akhEI" });
 
             base.Seed(context);
         }

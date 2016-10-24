@@ -61,10 +61,6 @@ D:\EliteIT\Collaboration v2\Navision\bin\zh-Hans\System.Spatial.resources.dll
 D:\EliteIT\Collaboration v2\Navision\bin\zh-Hant\System.Spatial.resources.dll
 D:\EliteIT\Collaboration v2\Navision\obj\Debug\Navision.dll
 D:\EliteIT\Collaboration v2\Navision\obj\Debug\Navision.pdb
-<<<<<<< HEAD
-D:\EliteIT\Collaboration v2\Navision\obj\Debug\Navision.csprojResolveAssemblyReference.cache
-=======
->>>>>>> fdb219b601d399855a6cf738ad57382237812d86
 C:\Users\klaus\Desktop\Collaborator-master\Navision\bin\roslyn\csc.exe
 C:\Users\klaus\Desktop\Collaborator-master\Navision\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\klaus\Desktop\Collaborator-master\Navision\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -129,7 +125,3 @@ C:\Users\klaus\Desktop\Collaborator-master\Navision\bin\zh-Hant\System.Spatial.r
 C:\Users\klaus\Desktop\Collaborator-master\Navision\obj\Debug\Navision.csprojResolveAssemblyReference.cache
 C:\Users\klaus\Desktop\Collaborator-master\Navision\obj\Debug\Navision.dll
 C:\Users\klaus\Desktop\Collaborator-master\Navision\obj\Debug\Navision.pdb
-<<<<<<< HEAD
->>>>>>> fdb219b601d399855a6cf738ad57382237812d86
-=======
->>>>>>> fdb219b601d399855a6cf738ad57382237812d86

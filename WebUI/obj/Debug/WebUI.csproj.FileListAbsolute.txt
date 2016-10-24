@@ -95,12 +95,7 @@ D:\EliteIT\Collaboration v2\WebUI\bin\Microsoft.Owin.Security.Twitter.xml
 D:\EliteIT\Collaboration v2\WebUI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\EliteIT\Collaboration v2\WebUI\obj\Debug\WebUI.dll
 D:\EliteIT\Collaboration v2\WebUI\obj\Debug\WebUI.pdb
-<<<<<<< HEAD
-<<<<<<< HEAD
 D:\EliteIT\Collaboration v2\WebUI\obj\Debug\WebUI.csprojResolveAssemblyReference.cache
-=======
-=======
->>>>>>> fdb219b601d399855a6cf738ad57382237812d86
 C:\Users\klaus\Desktop\Collaborator-master\WebUI\bin\ApplicationInsights.config
 C:\Users\klaus\Desktop\Collaborator-master\WebUI\bin\roslyn\csc.exe
 C:\Users\klaus\Desktop\Collaborator-master\WebUI\bin\roslyn\csc.exe.config
@@ -199,7 +194,3 @@ C:\Users\klaus\Desktop\Collaborator-master\WebUI\bin\Microsoft.Owin.Security.Mic
 C:\Users\klaus\Desktop\Collaborator-master\WebUI\obj\Debug\WebUI.csprojResolveAssemblyReference.cache
 C:\Users\klaus\Desktop\Collaborator-master\WebUI\obj\Debug\WebUI.dll
 C:\Users\klaus\Desktop\Collaborator-master\WebUI\obj\Debug\WebUI.pdb
-<<<<<<< HEAD
->>>>>>> fdb219b601d399855a6cf738ad57382237812d86
-=======
->>>>>>> fdb219b601d399855a6cf738ad57382237812d86

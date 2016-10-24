@@ -19,5 +19,6 @@ namespace WebAPI.Context
         public DbSet<SearchCriteria> SearchCriterias { get; set; }
 
         public DbSet<Theme> Themes { get; set; }
+        public DbSet<EmailAccount> EmailAccounts { get; set; }
     }
 }

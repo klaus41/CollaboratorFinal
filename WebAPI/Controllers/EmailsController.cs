@@ -142,22 +142,26 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult SaveAndIndexEmails()
         {
-            string userName = "klaus@eliteit.dk";
-            string password = "Kg240789.";
-
-
             EmailReader er = new EmailReader();
             EmailWriter ew = new EmailWriter();
             Indexer indexer = new Indexer();
             List<Email> emails;
+            List<Email> allEmails = new List<Email>();
             FindItemsResults<Item> findResults;
 
-            findResults = er.GetAllEmails(userName, password);
-            emails = ew.EmailConverter(findResults, userName);
-            ew.SaveEmails(emails);
-            indexer.IndexAllEmails();
+            foreach (EmailAccount ea in db.EmailAccounts)
+            {
+                findResults = er.GetAllEmails(ea.EmailAddress, ea.Password);
+                emails = ew.EmailConverter(findResults, ea.EmailAddress);
+                ew.SaveEmails(emails);
+                indexer.IndexAllEmails();
+                foreach (var email in emails)
+                {
+                    allEmails.Add(email);
+                }
+            }
 
-            return Ok(emails);
+            return Ok(allEmails);
         }
         [HttpGet]
         [Route("CheckNewMail")]

@@ -26,12 +26,23 @@ namespace WebAPI.EmailManager
 
             foreach (var searchCriteria in searchCriterias)
             {
+                string c = searchCriteria.Criteria;
                 foreach (var email in emails)
                 {
-                    if (email.BodyText != null && email.BodyText.Contains(searchCriteria.Criteria))
+                    if (email.BodyText != null && email.BodyText.Contains(c) ||
+                            email.ReceivedDate != null && email.ReceivedDate.ToString().Contains(c) ||
+                            email.Recipiant != null && email.Recipiant.Contains(c) ||
+                            email.Sender != null && email.Sender.Contains(c) ||
+                            email.Subject != null && email.Subject.Contains(c) ||
+                            email.Sender != null && email.Sender.Contains(c))
                     {
                         email.SearchCriteria.Add(searchCriteria);
                     }
+                    else { }
+                    //if (email.BodyText != null && email.BodyText.Contains(searchCriteria.Criteria))
+                    //{
+                    //    email.SearchCriteria.Add(searchCriteria);
+                    //}
                 }
             }
 

@@ -95,4 +95,3 @@ D:\EliteIT\Collaboration v2\WebUI\bin\Microsoft.Owin.Security.Twitter.xml
 D:\EliteIT\Collaboration v2\WebUI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\EliteIT\Collaboration v2\WebUI\obj\Debug\WebUI.dll
 D:\EliteIT\Collaboration v2\WebUI\obj\Debug\WebUI.pdb
-D:\EliteIT\Collaboration v2\WebUI\obj\Debug\WebUI.csprojResolveAssemblyReference.cache

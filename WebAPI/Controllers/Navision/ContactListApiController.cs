@@ -8,24 +8,24 @@ using Navision.Repository;
 
 namespace WebAPI.Controllers.Navision
 {
-    [RoutePrefix("api/nav/")]
+    [RoutePrefix("api/nav")]
 
     public class ContactListApiController : ApiController
     {
-        readonly NavFacade nav = new NavFacade();
+        readonly NavFacade _nav = new NavFacade();
 
         [HttpGet]
         [Route("Contacts")]
         public IHttpActionResult GetContactList()
         {
-            return Ok(nav.ContactList.GetContacts());
+            return Ok(_nav.ContactList.GetContacts());
         }
 
         [HttpGet]
         [Route("Contact/{key}")]
         public IHttpActionResult GetCompany(string key)
         {
-            return Ok(nav.ContactList.GetContact(key));
+            return Ok(_nav.ContactList.GetContact(key));
         }
 
     }

@@ -64,6 +64,5 @@ D:\EliteIT\Collaboration v2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xm
 D:\EliteIT\Collaboration v2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
 D:\EliteIT\Collaboration v2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
 D:\EliteIT\Collaboration v2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\EliteIT\Collaboration v2\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 D:\EliteIT\Collaboration v2\WebApplication2\obj\Debug\WebApplication2.dll
 D:\EliteIT\Collaboration v2\WebApplication2\obj\Debug\WebApplication2.pdb

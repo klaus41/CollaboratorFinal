@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Webui;
+using Webui.ServiceGateway;
 using WebUI;
 
 namespace WebUI.Controllers
@@ -7,7 +8,7 @@ namespace WebUI.Controllers
 
     public class EmailController : Controller
     {
-        ServiceGateway _gateway = new ServiceGateway();
+        EmailGateway _gateway = new EmailGateway();
 
         // GET: Email
         public ActionResult Index()

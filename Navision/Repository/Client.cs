@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using EliteIT.Biomass.OData.navData;
 using System.Net;
 using System;
+using Navision.navData;
 
 namespace Navision.Repository
 {
@@ -12,10 +12,15 @@ namespace Navision.Repository
 
         }
 
-        public NAV navOData()
+        public NAV NavOData()
         {
-            NAV nav = new NAV(new Uri(ConfigurationManager.AppSettings["Dynamics.URL"].ToString()));
-            nav.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["Dynamics.Username"], ConfigurationManager.AppSettings["Dynamics.Password"], ConfigurationManager.AppSettings["Dynamics.Domain"].ToString());
+            NAV nav = new NAV(new Uri(ConfigurationManager.AppSettings["Dynamics.URL"].ToString()))
+            {
+                Credentials =
+                    new NetworkCredential(ConfigurationManager.AppSettings["Dynamics.Username"],
+                        ConfigurationManager.AppSettings["Dynamics.Password"],
+                        ConfigurationManager.AppSettings["Dynamics.Domain"].ToString())
+            };
             return nav;
         }
 

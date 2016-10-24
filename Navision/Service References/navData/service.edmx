@@ -1,0 +1,714 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="NAV" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityType Name="ActivityTimeLog">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Start_Date" Type="Edm.DateTime" />
+        <Property Name="Seconds" Type="Edm.Int32" />
+        <Property Name="Last_Paused" Type="Edm.DateTime" />
+        <Property Name="Is_Running" Type="Edm.Boolean" />
+        <Property Name="Journal_Batch_Name" Type="Edm.String" />
+        <Property Name="Journal_Line_No" Type="Edm.Int32" />
+        <Property Name="Journal_Template_Name" Type="Edm.String" />
+        <Property Name="Activity_Type" Type="Edm.String" />
+        <Property Name="Transport_GUID" Type="Edm.Guid" />
+        <Property Name="Transport_No" Type="Edm.Int32" />
+        <Property Name="Last_Started" Type="Edm.DateTime" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="ActivityType">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Binary">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="bin" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="BiomassAllocationPerTank">
+        <Key>
+          <PropertyRef Name="Biomass_Code" />
+          <PropertyRef Name="Tank_Raw_No" />
+        </Key>
+        <Property Name="Tank_Raw_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Biomass_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+        <NavigationProperty Name="Tank_Raw_No_Link" Relationship="NAV.BiomassAllocationPerTank_Tank_Raw_No_Link" ToRole="Tank_Raw_No_Link" FromRole="BiomassAllocationPerTank" />
+      </EntityType>
+      <EntityType Name="ContactList">
+        <Key>
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Company_Name" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="Mobile_Phone_No" Type="Edm.String" />
+        <Property Name="Fax_No" Type="Edm.String" />
+        <Property Name="VAT_Registration_No" Type="Edm.String" />
+        <Property Name="Salesperson_Code" Type="Edm.String" />
+        <Property Name="Territory_Code" Type="Edm.String" />
+        <Property Name="Currency_Code" Type="Edm.String" />
+        <Property Name="Language_Code" Type="Edm.String" />
+        <Property Name="Search_Name" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Vendor_Bank_Branch_No" Type="Edm.String" />
+        <Property Name="Vendor_Bank_Acc_No" Type="Edm.String" />
+        <Property Name="Old" Type="Edm.Boolean" />
+        <Property Name="Invoice_Count" Type="Edm.Int32" />
+        <Property Name="Settlement_Count" Type="Edm.Int32" />
+        <Property Name="SettlementExists" Type="Edm.Boolean" />
+        <Property Name="Supplier_raw_biomass" Type="Edm.Boolean" />
+        <Property Name="Industrial_suppl_raw_biomass" Type="Edm.Boolean" />
+        <Property Name="Buyer_degassed_biomass" Type="Edm.Boolean" />
+        <Property Name="Member_Supplier_Association" Type="Edm.Boolean" />
+        <Property Name="Password" Type="Edm.String" />
+        <Property Name="Date_Filter" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Delayed_Reasons">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Reason" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="DeliveryEntries">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Supplier_No" Type="Edm.String" />
+        <Property Name="Vendor_Name" Type="Edm.String" />
+        <Property Name="Tank_Type" Type="Edm.String" />
+        <Property Name="Tank_Code" Type="Edm.String" />
+        <Property Name="Biomass_Code" Type="Edm.String" />
+        <Property Name="Truck_No" Type="Edm.String" />
+        <Property Name="Driver_No" Type="Edm.String" />
+        <Property Name="Date" Type="Edm.DateTime" />
+        <Property Name="Dry_Matter_Percent" Type="Edm.Decimal" />
+        <Property Name="Amount_of_tons" Type="Edm.Decimal" />
+        <Property Name="User_ID" Type="Edm.String" />
+        <Property Name="Moved" Type="Edm.Boolean" />
+        <Property Name="Bonus_per_tons" Type="Edm.Decimal" />
+        <Property Name="Bonus_amount" Type="Edm.Decimal" />
+        <Property Name="Hours" Type="Edm.Decimal" />
+        <Property Name="Km" Type="Edm.Decimal" />
+        <Property Name="Tank_Holder" Type="Edm.String" />
+        <Property Name="Tank_Owner" Type="Edm.String" />
+        <Property Name="Transaction_No" Type="Edm.Int32" />
+        <Property Name="Dry_Matter_Percent_Calc" Type="Edm.Decimal" />
+        <Property Name="Cancelled" Type="Edm.Boolean" />
+        <Property Name="Cancelled_by" Type="Edm.String" />
+        <Property Name="Cancelled_time" Type="Edm.DateTime" />
+        <Property Name="Analysis_Entry_No" Type="Edm.Int32" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="DeviceLog">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DeviceID" Type="Edm.String" />
+        <Property Name="Longitude" Type="Edm.Decimal" />
+        <Property Name="Latitude" Type="Edm.Decimal" />
+        <Property Name="Time_Logged" Type="Edm.DateTime" />
+        <Property Name="Time_Received" Type="Edm.DateTime" />
+        <Property Name="Transport_GUID" Type="Edm.Guid" />
+        <Property Name="GetMapURL" Type="Edm.String" />
+        <Property Name="Is_Picture" Type="Edm.Boolean" />
+        <Property Name="Driver_No" Type="Edm.String" />
+        <Property Name="Truck_No" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Driver">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Transport_Journal_Batch" Type="Edm.String" />
+        <Property Name="Password" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="eDriverCompanies">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Company_Name" Type="Edm.String" />
+        <Property Name="Company_Part_URL" Type="Edm.String" />
+        <Property Name="User_Name" Type="Edm.String" />
+        <Property Name="Password" Type="Edm.String" />
+        <Property Name="Location_URL" Type="Edm.String" />
+        <Property Name="Domain" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Portal_OrderTransport">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Supplier_No" Type="Edm.String" />
+        <Property Name="Type_of_Transport" Type="Edm.String" />
+        <Property Name="Tank_Code" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Amount_of_Tons" Type="Edm.Int32" />
+        <Property Name="Date_Ordered" Type="Edm.DateTime" />
+        <Property Name="Preferred_Date" Type="Edm.DateTime" />
+        <Property Name="Date_Available" Type="Edm.DateTime" />
+        <Property Name="Approved" Type="Edm.Boolean" />
+        <Property Name="Approved_Date" Type="Edm.DateTime" />
+        <Property Name="Transport_No" Type="Edm.Int32" />
+        <Property Name="Comments" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Portal_PDF">
+        <Key>
+          <PropertyRef Name="Entry_No" />
+        </Key>
+        <Property Name="Entry_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Source_Type" Type="Edm.String" />
+        <Property Name="Source_No" Type="Edm.String" />
+        <Property Name="Document_Type" Type="Edm.String" />
+        <Property Name="Document_No" Type="Edm.String" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Send_date_time" Type="Edm.DateTime" />
+        <Property Name="Send_User_ID" Type="Edm.String" />
+        <Property Name="Send_to_e_mail_adress" Type="Edm.String" />
+        <Property Name="Filename" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Portal_Statistik">
+        <Key>
+          <PropertyRef Name="N" />
+        </Key>
+        <Property Name="N" Type="Edm.Int32" Nullable="false" />
+        <Property Name="mdr" Type="Edm.String" />
+        <Property Name="gns_torstof_raa" Type="Edm.Decimal" />
+        <Property Name="gns_torstof_afg" Type="Edm.Decimal" />
+        <Property Name="maengde_afg" Type="Edm.Decimal" />
+        <Property Name="maengde_raa" Type="Edm.Decimal" />
+        <Property Name="SupplNo" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Portal_Statistik_Top10">
+        <Key>
+          <PropertyRef Name="N" />
+        </Key>
+        <Property Name="N" Type="Edm.Int32" Nullable="false" />
+        <Property Name="mdr" Type="Edm.String" />
+        <Property Name="gns_torstof_raa" Type="Edm.Decimal" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="TankDegassed">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Owner_No" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Owner_Name" Type="Edm.String" />
+        <Property Name="GPS_Latitude" Type="Edm.Decimal" />
+        <Property Name="GPS_Longitude" Type="Edm.Decimal" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="TankRaw">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Supplier_No" Type="Edm.String" />
+        <Property Name="Suppliername" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Address_2" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="County" Type="Edm.String" />
+        <Property Name="Country_Region_Code" Type="Edm.String" />
+        <Property Name="Biomass_Code" Type="Edm.String" />
+        <Property Name="Biomass_Description" Type="Edm.String" />
+        <Property Name="Treatment_Fees" Type="Edm.Decimal" />
+        <Property Name="Max_Size_of_truck_in_tons" Type="Edm.Decimal" />
+        <Property Name="Ass_tank_degassed_at_pickup" Type="Edm.String" />
+        <Property Name="Quantity_per_year" Type="Edm.Decimal" />
+        <Property Name="Net_Change_Retrieved_Quantity" Type="Edm.Decimal" />
+        <Property Name="Date_filter" Type="Edm.DateTime" />
+        <Property Name="Not_big_truck" Type="Edm.Boolean" />
+        <Property Name="Driving_time" Type="Edm.String" />
+        <Property Name="Til_Dato" Type="Edm.DateTime" />
+        <Property Name="GPS_Latitude" Type="Edm.Decimal" />
+        <Property Name="GPS_Longitude" Type="Edm.Decimal" />
+        <Property Name="Disctance_From_Plant" Type="Edm.Decimal" />
+        <Property Name="Moved_Filter" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="Trucks">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Size" Type="Edm.Decimal" />
+        <Property Name="Driver_Code" Type="Edm.String" />
+        <Property Name="Driver_Name" Type="Edm.String" />
+        <Property Name="Deliveries" Type="Edm.Decimal" />
+        <Property Name="Date_filter" Type="Edm.DateTime" />
+        <Property Name="Tank_Type_Filter" Type="Edm.String" />
+        <Property Name="Hide" Type="Edm.Boolean" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="UserOfTankDegassed">
+        <Key>
+          <PropertyRef Name="Supplier_No" />
+          <PropertyRef Name="Tank_Code" />
+        </Key>
+        <Property Name="Tank_Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Supplier_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Agreed_quantity" Type="Edm.Decimal" />
+        <Property Name="Requested_Quantity_per_Year" Type="Edm.Decimal" />
+        <Property Name="Supplier_Name" Type="Edm.String" />
+        <Property Name="Net_Change_Delivered_Quantity" Type="Edm.Decimal" />
+        <Property Name="Net_Change_Dispersed_Quantity" Type="Edm.Decimal" />
+        <Property Name="Net_Change_Quantity" Type="Edm.Decimal" />
+        <Property Name="Net_Change_Rainwater_Quantity" Type="Edm.Decimal" />
+        <Property Name="Balance_Delivered_Quantity" Type="Edm.Decimal" />
+        <Property Name="Balance_Dispersed_Quantity" Type="Edm.Decimal" />
+        <Property Name="Balance_Quantity" Type="Edm.Decimal" />
+        <Property Name="Balance_Rainwater_Quantity" Type="Edm.Decimal" />
+        <Property Name="Purchase_Agreement_Exists" Type="Edm.Boolean" />
+        <Property Name="GPS_Latitude" Type="Edm.Decimal" />
+        <Property Name="GPS_Longitude" Type="Edm.Decimal" />
+        <Property Name="Moved_Filter" Type="Edm.String" />
+        <Property Name="Date_filter" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="DeviceLog2">
+        <Key>
+          <PropertyRef Name="Id" />
+          <PropertyRef Name="Transport_GUID" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="DeviceID" Type="Edm.String" />
+        <Property Name="Longitude" Type="Edm.Decimal" />
+        <Property Name="Latitude" Type="Edm.Decimal" />
+        <Property Name="Time_Logged" Type="Edm.DateTime" />
+        <Property Name="Transport_GUID" Type="Edm.Guid" Nullable="false" />
+        <Property Name="Truck_No" Type="Edm.String" />
+        <Property Name="Driver_No" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Portal_BiomassType">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Portal_Company">
+        <Key>
+          <PropertyRef Name="Name" />
+        </Key>
+        <Property Name="Company_No" Type="Edm.Int32" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Portal_Degassed">
+        <Key>
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Supplier_No" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Supplier_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Portal_SalesAgreement">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+          <PropertyRef Name="Supplier_No" />
+        </Key>
+        <Property Name="Supplier_No" Type="Edm.String" Nullable="false" />
+        <Property Name="From_Date" Type="Edm.DateTime" />
+        <Property Name="To_Date" Type="Edm.DateTime" />
+        <Property Name="Sales_Request" Type="Edm.Decimal" />
+        <Property Name="Comment" Type="Edm.String" />
+        <Property Name="Supplier_Name" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Portal_SupplierDetails">
+        <Key>
+          <PropertyRef Name="No" />
+        </Key>
+        <Property Name="No" Type="Edm.String" Nullable="false" />
+        <Property Name="Company_Name" Type="Edm.String" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="E_Mail" Type="Edm.String" />
+        <Property Name="Phone_No" Type="Edm.String" />
+        <Property Name="First_Name" Type="Edm.String" />
+        <Property Name="Middle_Name" Type="Edm.String" />
+        <Property Name="Surname" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Portal_TankRaw">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Supplier_No" Type="Edm.String" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="Post_Code" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Biomass_Code" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Portal_Texts">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+          <PropertyRef Name="AuxiliaryIndex2" />
+          <PropertyRef Name="AuxiliaryIndex3" />
+          <PropertyRef Name="AuxiliaryIndex4" />
+          <PropertyRef Name="AuxiliaryIndex5" />
+          <PropertyRef Name="AuxiliaryIndex6" />
+          <PropertyRef Name="AuxiliaryIndex7" />
+          <PropertyRef Name="Line_No" />
+          <PropertyRef Name="Text_No" />
+        </Key>
+        <Property Name="Text_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Line_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Text" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.String" Nullable="false" />
+        <Property Name="AuxiliaryIndex2" Type="Edm.String" Nullable="false" />
+        <Property Name="AuxiliaryIndex3" Type="Edm.String" Nullable="false" />
+        <Property Name="AuxiliaryIndex4" Type="Edm.String" Nullable="false" />
+        <Property Name="AuxiliaryIndex5" Type="Edm.String" Nullable="false" />
+        <Property Name="AuxiliaryIndex6" Type="Edm.String" Nullable="false" />
+        <Property Name="AuxiliaryIndex7" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Portal_TransportAgreement">
+        <Key>
+          <PropertyRef Name="AuxiliaryIndex1" />
+        </Key>
+        <Property Name="Receiving_No" Type="Edm.String" />
+        <Property Name="Tank_Raw" Type="Edm.String" />
+        <Property Name="From_Date" Type="Edm.DateTime" />
+        <Property Name="To_Date" Type="Edm.DateTime" />
+        <Property Name="Weekday" Type="Edm.String" />
+        <Property Name="Week_Interval" Type="Edm.Int32" />
+        <Property Name="Last_Date_Driven" Type="Edm.DateTime" />
+        <Property Name="Tank_Degassed" Type="Edm.String" />
+        <Property Name="AuxiliaryIndex1" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Company">
+        <Key>
+          <PropertyRef Name="Name" />
+        </Key>
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="ActivityTimeLog" Relationship="NAV.Company_ActivityTimeLog" ToRole="ActivityTimeLog" FromRole="Company" />
+        <NavigationProperty Name="ActivityType" Relationship="NAV.Company_ActivityType" ToRole="ActivityType" FromRole="Company" />
+        <NavigationProperty Name="Binary" Relationship="NAV.Company_Binary" ToRole="Binary" FromRole="Company" />
+        <NavigationProperty Name="BiomassAllocationPerTank" Relationship="NAV.Company_BiomassAllocationPerTank" ToRole="BiomassAllocationPerTank" FromRole="Company" />
+        <NavigationProperty Name="ContactList" Relationship="NAV.Company_ContactList" ToRole="ContactList" FromRole="Company" />
+        <NavigationProperty Name="Delayed_Reasons" Relationship="NAV.Company_Delayed_Reasons" ToRole="Delayed_Reasons" FromRole="Company" />
+        <NavigationProperty Name="DeliveryEntries" Relationship="NAV.Company_DeliveryEntries" ToRole="DeliveryEntries" FromRole="Company" />
+        <NavigationProperty Name="DeviceLog" Relationship="NAV.Company_DeviceLog" ToRole="DeviceLog" FromRole="Company" />
+        <NavigationProperty Name="Driver" Relationship="NAV.Company_Driver" ToRole="Driver" FromRole="Company" />
+        <NavigationProperty Name="eDriverCompanies" Relationship="NAV.Company_eDriverCompanies" ToRole="eDriverCompanies" FromRole="Company" />
+        <NavigationProperty Name="Portal_OrderTransport" Relationship="NAV.Company_Portal_OrderTransport" ToRole="Portal_OrderTransport" FromRole="Company" />
+        <NavigationProperty Name="Portal_PDF" Relationship="NAV.Company_Portal_PDF" ToRole="Portal_PDF" FromRole="Company" />
+        <NavigationProperty Name="Portal_Statistik" Relationship="NAV.Company_Portal_Statistik" ToRole="Portal_Statistik" FromRole="Company" />
+        <NavigationProperty Name="Portal_Statistik_Top10" Relationship="NAV.Company_Portal_Statistik_Top10" ToRole="Portal_Statistik_Top10" FromRole="Company" />
+        <NavigationProperty Name="TankDegassed" Relationship="NAV.Company_TankDegassed" ToRole="TankDegassed" FromRole="Company" />
+        <NavigationProperty Name="TankRaw" Relationship="NAV.Company_TankRaw" ToRole="TankRaw" FromRole="Company" />
+        <NavigationProperty Name="Trucks" Relationship="NAV.Company_Trucks" ToRole="Trucks" FromRole="Company" />
+        <NavigationProperty Name="UserOfTankDegassed" Relationship="NAV.Company_UserOfTankDegassed" ToRole="UserOfTankDegassed" FromRole="Company" />
+        <NavigationProperty Name="DeviceLog2" Relationship="NAV.Company_DeviceLog2" ToRole="DeviceLog2" FromRole="Company" />
+        <NavigationProperty Name="Portal_BiomassType" Relationship="NAV.Company_Portal_BiomassType" ToRole="Portal_BiomassType" FromRole="Company" />
+        <NavigationProperty Name="Portal_Company" Relationship="NAV.Company_Portal_Company" ToRole="Portal_Company" FromRole="Company" />
+        <NavigationProperty Name="Portal_Degassed" Relationship="NAV.Company_Portal_Degassed" ToRole="Portal_Degassed" FromRole="Company" />
+        <NavigationProperty Name="Portal_SalesAgreement" Relationship="NAV.Company_Portal_SalesAgreement" ToRole="Portal_SalesAgreement" FromRole="Company" />
+        <NavigationProperty Name="Portal_SupplierDetails" Relationship="NAV.Company_Portal_SupplierDetails" ToRole="Portal_SupplierDetails" FromRole="Company" />
+        <NavigationProperty Name="Portal_TankRaw" Relationship="NAV.Company_Portal_TankRaw" ToRole="Portal_TankRaw" FromRole="Company" />
+        <NavigationProperty Name="Portal_Texts" Relationship="NAV.Company_Portal_Texts" ToRole="Portal_Texts" FromRole="Company" />
+        <NavigationProperty Name="Portal_TransportAgreement" Relationship="NAV.Company_Portal_TransportAgreement" ToRole="Portal_TransportAgreement" FromRole="Company" />
+      </EntityType>
+      <Association Name="BiomassAllocationPerTank_Tank_Raw_No_Link">
+        <End Type="NAV.TankRaw" Role="Tank_Raw_No_Link" Multiplicity="0..1" />
+        <End Type="NAV.BiomassAllocationPerTank" Role="BiomassAllocationPerTank" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ActivityTimeLog">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.ActivityTimeLog" Role="ActivityTimeLog" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ActivityType">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.ActivityType" Role="ActivityType" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Binary">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.Binary" Role="Binary" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_BiomassAllocationPerTank">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.BiomassAllocationPerTank" Role="BiomassAllocationPerTank" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_ContactList">
+        <End Type="NAV.ContactList" Role="ContactList" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Delayed_Reasons">
+        <End Type="NAV.Delayed_Reasons" Role="Delayed_Reasons" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_DeliveryEntries">
+        <End Type="NAV.DeliveryEntries" Role="DeliveryEntries" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_DeviceLog">
+        <End Type="NAV.DeviceLog" Role="DeviceLog" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Driver">
+        <End Type="NAV.Driver" Role="Driver" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_eDriverCompanies">
+        <End Type="NAV.eDriverCompanies" Role="eDriverCompanies" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_OrderTransport">
+        <End Type="NAV.Portal_OrderTransport" Role="Portal_OrderTransport" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_PDF">
+        <End Type="NAV.Portal_PDF" Role="Portal_PDF" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_Statistik">
+        <End Type="NAV.Portal_Statistik" Role="Portal_Statistik" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_Statistik_Top10">
+        <End Type="NAV.Portal_Statistik_Top10" Role="Portal_Statistik_Top10" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_TankDegassed">
+        <End Type="NAV.TankDegassed" Role="TankDegassed" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_TankRaw">
+        <End Type="NAV.TankRaw" Role="TankRaw" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Trucks">
+        <End Type="NAV.Trucks" Role="Trucks" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_UserOfTankDegassed">
+        <End Type="NAV.UserOfTankDegassed" Role="UserOfTankDegassed" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_DeviceLog2">
+        <End Type="NAV.DeviceLog2" Role="DeviceLog2" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_BiomassType">
+        <End Type="NAV.Portal_BiomassType" Role="Portal_BiomassType" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_Company">
+        <End Type="NAV.Portal_Company" Role="Portal_Company" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_Degassed">
+        <End Type="NAV.Portal_Degassed" Role="Portal_Degassed" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_SalesAgreement">
+        <End Type="NAV.Portal_SalesAgreement" Role="Portal_SalesAgreement" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_SupplierDetails">
+        <End Type="NAV.Portal_SupplierDetails" Role="Portal_SupplierDetails" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_TankRaw">
+        <End Type="NAV.Portal_TankRaw" Role="Portal_TankRaw" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_Texts">
+        <End Type="NAV.Portal_Texts" Role="Portal_Texts" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_Portal_TransportAgreement">
+        <End Type="NAV.Portal_TransportAgreement" Role="Portal_TransportAgreement" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <EntityContainer Name="NAV" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="ActivityTimeLog" EntityType="NAV.ActivityTimeLog" />
+        <EntitySet Name="ActivityType" EntityType="NAV.ActivityType" />
+        <EntitySet Name="Binary" EntityType="NAV.Binary" />
+        <EntitySet Name="BiomassAllocationPerTank" EntityType="NAV.BiomassAllocationPerTank" />
+        <EntitySet Name="ContactList" EntityType="NAV.ContactList" />
+        <EntitySet Name="Delayed_Reasons" EntityType="NAV.Delayed_Reasons" />
+        <EntitySet Name="DeliveryEntries" EntityType="NAV.DeliveryEntries" />
+        <EntitySet Name="DeviceLog" EntityType="NAV.DeviceLog" />
+        <EntitySet Name="Driver" EntityType="NAV.Driver" />
+        <EntitySet Name="eDriverCompanies" EntityType="NAV.eDriverCompanies" />
+        <EntitySet Name="Portal_OrderTransport" EntityType="NAV.Portal_OrderTransport" />
+        <EntitySet Name="Portal_PDF" EntityType="NAV.Portal_PDF" />
+        <EntitySet Name="Portal_Statistik" EntityType="NAV.Portal_Statistik" />
+        <EntitySet Name="Portal_Statistik_Top10" EntityType="NAV.Portal_Statistik_Top10" />
+        <EntitySet Name="TankDegassed" EntityType="NAV.TankDegassed" />
+        <EntitySet Name="TankRaw" EntityType="NAV.TankRaw" />
+        <EntitySet Name="Trucks" EntityType="NAV.Trucks" />
+        <EntitySet Name="UserOfTankDegassed" EntityType="NAV.UserOfTankDegassed" />
+        <EntitySet Name="DeviceLog2" EntityType="NAV.DeviceLog2" />
+        <EntitySet Name="Portal_BiomassType" EntityType="NAV.Portal_BiomassType" />
+        <EntitySet Name="Portal_Company" EntityType="NAV.Portal_Company" />
+        <EntitySet Name="Portal_Degassed" EntityType="NAV.Portal_Degassed" />
+        <EntitySet Name="Portal_SalesAgreement" EntityType="NAV.Portal_SalesAgreement" />
+        <EntitySet Name="Portal_SupplierDetails" EntityType="NAV.Portal_SupplierDetails" />
+        <EntitySet Name="Portal_TankRaw" EntityType="NAV.Portal_TankRaw" />
+        <EntitySet Name="Portal_Texts" EntityType="NAV.Portal_Texts" />
+        <EntitySet Name="Portal_TransportAgreement" EntityType="NAV.Portal_TransportAgreement" />
+        <EntitySet Name="Company" EntityType="NAV.Company" />
+        <AssociationSet Name="BiomassAllocationPerTank_Tank_Raw_No_Link_TankRaw" Association="NAV.BiomassAllocationPerTank_Tank_Raw_No_Link">
+          <End Role="BiomassAllocationPerTank" EntitySet="BiomassAllocationPerTank" />
+          <End Role="Tank_Raw_No_Link" EntitySet="TankRaw" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ActivityTimeLog_ActivityTimeLog" Association="NAV.Company_ActivityTimeLog">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ActivityTimeLog" EntitySet="ActivityTimeLog" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ActivityType_ActivityType" Association="NAV.Company_ActivityType">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ActivityType" EntitySet="ActivityType" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Binary_Binary" Association="NAV.Company_Binary">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Binary" EntitySet="Binary" />
+        </AssociationSet>
+        <AssociationSet Name="Company_BiomassAllocationPerTank_BiomassAllocationPerTank" Association="NAV.Company_BiomassAllocationPerTank">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="BiomassAllocationPerTank" EntitySet="BiomassAllocationPerTank" />
+        </AssociationSet>
+        <AssociationSet Name="Company_ContactList_ContactList" Association="NAV.Company_ContactList">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="ContactList" EntitySet="ContactList" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Delayed_Reasons_Delayed_Reasons" Association="NAV.Company_Delayed_Reasons">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Delayed_Reasons" EntitySet="Delayed_Reasons" />
+        </AssociationSet>
+        <AssociationSet Name="Company_DeliveryEntries_DeliveryEntries" Association="NAV.Company_DeliveryEntries">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="DeliveryEntries" EntitySet="DeliveryEntries" />
+        </AssociationSet>
+        <AssociationSet Name="Company_DeviceLog_DeviceLog" Association="NAV.Company_DeviceLog">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="DeviceLog" EntitySet="DeviceLog" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Driver_Driver" Association="NAV.Company_Driver">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Driver" EntitySet="Driver" />
+        </AssociationSet>
+        <AssociationSet Name="Company_eDriverCompanies_eDriverCompanies" Association="NAV.Company_eDriverCompanies">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="eDriverCompanies" EntitySet="eDriverCompanies" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_OrderTransport_Portal_OrderTransport" Association="NAV.Company_Portal_OrderTransport">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_OrderTransport" EntitySet="Portal_OrderTransport" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_PDF_Portal_PDF" Association="NAV.Company_Portal_PDF">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_PDF" EntitySet="Portal_PDF" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_Statistik_Portal_Statistik" Association="NAV.Company_Portal_Statistik">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_Statistik" EntitySet="Portal_Statistik" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_Statistik_Top10_Portal_Statistik_Top10" Association="NAV.Company_Portal_Statistik_Top10">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_Statistik_Top10" EntitySet="Portal_Statistik_Top10" />
+        </AssociationSet>
+        <AssociationSet Name="Company_TankDegassed_TankDegassed" Association="NAV.Company_TankDegassed">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="TankDegassed" EntitySet="TankDegassed" />
+        </AssociationSet>
+        <AssociationSet Name="Company_TankRaw_TankRaw" Association="NAV.Company_TankRaw">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="TankRaw" EntitySet="TankRaw" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Trucks_Trucks" Association="NAV.Company_Trucks">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Trucks" EntitySet="Trucks" />
+        </AssociationSet>
+        <AssociationSet Name="Company_UserOfTankDegassed_UserOfTankDegassed" Association="NAV.Company_UserOfTankDegassed">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="UserOfTankDegassed" EntitySet="UserOfTankDegassed" />
+        </AssociationSet>
+        <AssociationSet Name="Company_DeviceLog2_DeviceLog2" Association="NAV.Company_DeviceLog2">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="DeviceLog2" EntitySet="DeviceLog2" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_BiomassType_Portal_BiomassType" Association="NAV.Company_Portal_BiomassType">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_BiomassType" EntitySet="Portal_BiomassType" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_Company_Portal_Company" Association="NAV.Company_Portal_Company">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_Company" EntitySet="Portal_Company" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_Degassed_Portal_Degassed" Association="NAV.Company_Portal_Degassed">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_Degassed" EntitySet="Portal_Degassed" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_SalesAgreement_Portal_SalesAgreement" Association="NAV.Company_Portal_SalesAgreement">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_SalesAgreement" EntitySet="Portal_SalesAgreement" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_SupplierDetails_Portal_SupplierDetails" Association="NAV.Company_Portal_SupplierDetails">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_SupplierDetails" EntitySet="Portal_SupplierDetails" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_TankRaw_Portal_TankRaw" Association="NAV.Company_Portal_TankRaw">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_TankRaw" EntitySet="Portal_TankRaw" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_Texts_Portal_Texts" Association="NAV.Company_Portal_Texts">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_Texts" EntitySet="Portal_Texts" />
+        </AssociationSet>
+        <AssociationSet Name="Company_Portal_TransportAgreement_Portal_TransportAgreement" Association="NAV.Company_Portal_TransportAgreement">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="Portal_TransportAgreement" EntitySet="Portal_TransportAgreement" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

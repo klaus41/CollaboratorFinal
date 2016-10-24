@@ -1,12 +1,13 @@
 ﻿using System.Web.Mvc;
 using Webui;
+using Webui.ServiceGateway;
 
 namespace WebUI.Controllers
 {
 
     public class ThemesController : Controller
     {
-        ServiceGateway _gateway = new ServiceGateway();
+        EmailGateway _gateway = new EmailGateway();
 
         // GET: Themes
         public ActionResult Index()

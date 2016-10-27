@@ -185,6 +185,16 @@ namespace WebAPI.Controllers
 
             return Ok(emails);
         }
+        [HttpGet]
+        [Route("Index")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Index()
+        {
+            Indexer indexer = new Indexer();
+            indexer.IndexAllEmails();
+
+            return Ok();
+        }
 
     }
 }

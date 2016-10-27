@@ -26,29 +26,50 @@ namespace WebAPI.EmailManager
 
             foreach (var searchCriteria in searchCriterias)
             {
-                string c = searchCriteria.Criteria;
                 foreach (var email in emails)
                 {
-                    if (email.BodyText != null && email.BodyText.Contains(c) ||
-                            email.ReceivedDate != null && email.ReceivedDate.ToString().Contains(c) ||
-                            email.Recipiant != null && email.Recipiant.Contains(c) ||
-                            email.Sender != null && email.Sender.Contains(c) ||
-                            email.Subject != null && email.Subject.Contains(c) ||
-                            email.Sender != null && email.Sender.Contains(c))
-                    {
-                        email.SearchCriteria.Add(searchCriteria);
-                    }
-                    else { }
-                    //if (email.BodyText != null && email.BodyText.Contains(searchCriteria.Criteria))
-                    //{
-                    //    email.SearchCriteria.Add(searchCriteria);
-                    //}
+                    CheckForNormalCase(email, searchCriteria);
+                    CheckForLowerCase(email, searchCriteria);
+                    CheckForUpperCase(email, searchCriteria);
                 }
             }
 
             db.SaveChanges();
             debug();
         }
+
+        private void CheckForUpperCase(Email email, SearchCriteria searchCriteria)
+        {
+            string c = searchCriteria.Criteria.ToUpper();
+            Check(c, searchCriteria, email);
+        }
+
+        private void CheckForLowerCase(Email email, SearchCriteria searchCriteria)
+        {
+            string c = searchCriteria.Criteria.ToLower();
+            Check(c, searchCriteria, email);
+        }
+
+        private void CheckForNormalCase(Email email, SearchCriteria searchCriteria)
+        {
+            string c = searchCriteria.Criteria;
+            Check(c, searchCriteria, email);
+        }
+
+        private void Check(string c, SearchCriteria searchCriteria, Email email)
+        {
+            if (email.BodyText != null && email.BodyText.Contains(c) ||
+                                        email.ReceivedDate != null && email.ReceivedDate.ToString().Contains(c) ||
+                                        email.Recipiant != null && email.Recipiant.Contains(c) ||
+                                        email.Sender != null && email.Sender.Contains(c) ||
+                                        email.Subject != null && email.Subject.Contains(c) ||
+                                        email.Sender != null && email.Sender.Contains(c))
+            {
+                email.SearchCriteria.Add(searchCriteria);
+            }
+            else { }
+        }
+
 
         private void debug()
         {

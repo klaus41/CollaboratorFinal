@@ -22,18 +22,22 @@
             <thead>
             <tr role="row">
                 <th>
-                    @Html.DisplayNameFor(model => model.Sender)
+                    Afsender
+                    @*@Html.DisplayNameFor(model => model.Sender)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Recipiant)
+                    Modtager
+                    @*@Html.DisplayNameFor(model => model.Recipiant)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ReceivedDate)
+                    Dato - Modtaget
+                    @*@Html.DisplayNameFor(model => model.ReceivedDate)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Subject)
+                    Emne
+                    @*@Html.DisplayNameFor(model => model.Subject)*@
                 </th>
-                <th>Kriterier</th>
+                <th>Søgestrenge</th>
             </tr>
             </thead>
             <tbody>
@@ -55,7 +59,7 @@
                         <td>
                             @foreach (var sc in item.SearchCriteria)
                             {
-                                @Html.DisplayFor(modelItem => sc.Criteria)
+                                @Html.DisplayFor(modelItem => sc.Criteria) <br />
                             }
 
                             @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

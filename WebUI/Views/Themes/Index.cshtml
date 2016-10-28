@@ -4,44 +4,72 @@
     ViewBag.Title = "Index";
 }
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title">Tema</h3>
-        <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fa fa-times"></i>
-            </button>
+@foreach (var theme in Model)
+{
+    <div class="box box-solid box-default collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">@Html.DisplayName(theme.Title)</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered table-stibed dataTable">
+                <thead>
+                    <tr role="row">
+                        <th>
+                            Afsender
+                            @*@Html.DisplayNameFor(model => model.Sender)*@
+                        </th>
+                        <th>
+                            Modtager
+                            @*@Html.DisplayNameFor(model => model.Recipiant)*@
+                        </th>
+                        <th>
+                            Dato - Modtaget
+                            @*@Html.DisplayNameFor(model => model.ReceivedDate)*@
+                        </th>
+                        <th>
+                            Emne
+                            @*@Html.DisplayNameFor(model => model.Subject)*@
+                        </th>
+                        <th>Søgestrenge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var sc in theme.SearchCriterias)
+                {
+                    foreach (var mail in sc.Emails)
+                    {
+                            <tr role="row">
+                                <td>
+                                    @Html.DisplayFor(modelItem => mail.Sender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => mail.Recipiant)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => mail.ReceivedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => mail.Subject)
+                                </td>
+                                <td>
+                                    @foreach (var s in mail.SearchCriteria)
+                                    {
+                                        @Html.DisplayFor(modelItem => s.Criteria) <br />
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="box-body">
-        <table class="table table-bordered table-stibed dataTable">
-            <thead>
-                <tr role="row">
-                    <th>
-                        @Html.DisplayNameFor(model => model.Title)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr role="row">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</div>
+}

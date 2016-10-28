@@ -33,9 +33,33 @@ namespace WebAPI.EmailManager
                     CheckForUpperCase(email, searchCriteria);
                 }
             }
-
             db.SaveChanges();
+
             debug();
+
+        }
+
+        public void IndexNewEmails(List<Email> emails)
+        {
+            searchCriterias = db.SearchCriterias;
+
+            foreach (var searchCriteria in searchCriterias)
+            {
+                foreach (var email in emails)
+                {
+                    if (email != null || searchCriteria != null)
+                    {
+                        CheckForNormalCase(email, searchCriteria);
+                        CheckForLowerCase(email, searchCriteria);
+                        CheckForUpperCase(email, searchCriteria);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Email or searchcriteria = null");
+                    }
+                }
+            }
+            db.SaveChanges();
         }
 
         private void CheckForUpperCase(Email email, SearchCriteria searchCriteria)
@@ -68,6 +92,7 @@ namespace WebAPI.EmailManager
                 email.SearchCriteria.Add(searchCriteria);
             }
             else { }
+
         }
 
 

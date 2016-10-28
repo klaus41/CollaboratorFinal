@@ -250,6 +250,7 @@
     <Compile Include="EmailManager\EmailReader.cs" />
     <Compile Include="EmailManager\EmailWriter.cs" />
     <Compile Include="EmailManager\Indexer.cs" />
+    <Compile Include="EmailManager\ThreadManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

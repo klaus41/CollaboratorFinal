@@ -19,7 +19,7 @@ namespace WebAPI.EmailManager
         private Email email;
         private EmailMessage message;
 
-        public List<Email> EmailConverter(FindItemsResults<Item> findResults, string userName)
+        public List<Email> EmailConverter(FindItemsResults<Item> findResults)
         {
             PropertySet itempropertyset = new PropertySet(BasePropertySet.FirstClassProperties);
             itempropertyset.RequestedBodyType = BodyType.Text;

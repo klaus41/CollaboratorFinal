@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Email";
 }
-
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">Email</h3>
@@ -20,25 +19,25 @@
     <div class="box-body">
         <table class="table table-bordered table-stibed dataTable">
             <thead>
-            <tr role="row">
-                <th>
-                    Afsender
-                    @*@Html.DisplayNameFor(model => model.Sender)*@
-                </th>
-                <th>
-                    Modtager
-                    @*@Html.DisplayNameFor(model => model.Recipiant)*@
-                </th>
-                <th>
-                    Dato - Modtaget
-                    @*@Html.DisplayNameFor(model => model.ReceivedDate)*@
-                </th>
-                <th>
-                    Emne
-                    @*@Html.DisplayNameFor(model => model.Subject)*@
-                </th>
-                <th>Søgestrenge</th>
-            </tr>
+                <tr role="row">
+                    <th>
+                        Afsender
+                        @*@Html.DisplayNameFor(model => model.Sender)*@
+                    </th>
+                    <th>
+                        Modtager
+                        @*@Html.DisplayNameFor(model => model.Recipiant)*@
+                    </th>
+                    <th>
+                        Dato - Modtaget
+                        @*@Html.DisplayNameFor(model => model.ReceivedDate)*@
+                    </th>
+                    <th>
+                        Emne
+                        @*@Html.DisplayNameFor(model => model.Subject)*@
+                    </th>
+                    <th>Temaer</th>
+                </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
@@ -59,12 +58,15 @@
                         <td>
                             @foreach (var sc in item.SearchCriteria)
                             {
-                                @Html.DisplayFor(modelItem => sc.Criteria) <br />
+                                foreach (var theme in sc.Themes)
+                                {
+                                    @Html.DisplayFor(modelItem => theme.Title) <br />
+                                }
                             }
 
                             @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+                                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
                         </td>
                     </tr>
                 }

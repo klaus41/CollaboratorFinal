@@ -16,17 +16,23 @@ using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+
     [RoutePrefix("api")]
 
     public class EmailsController : ApiController
     {
+        EmailReader er = new EmailReader();
+        EmailWriter ew = new EmailWriter();
+        Indexer indexer = new Indexer();
+        List<Email> emails;
+        List<Email> allEmails = new List<Email>();
+        FindItemsResults<Item> findResults;
         private CollaboratorContext db = new CollaboratorContext();
-        private EmailReader er = new EmailReader();
 
         // GET: api/Emails
         public IQueryable<Email> GetEmails()
         {
-            return db.Emails.Include(s=>s.SearchCriteria);
+            return db.Emails.Include(s => s.SearchCriteria);
         }
 
         // GET: api/Emails/5
@@ -142,17 +148,12 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult SaveAndIndexEmails()
         {
-            EmailReader er = new EmailReader();
-            EmailWriter ew = new EmailWriter();
-            Indexer indexer = new Indexer();
-            List<Email> emails;
-            List<Email> allEmails = new List<Email>();
-            FindItemsResults<Item> findResults;
+        
 
             foreach (EmailAccount ea in db.EmailAccounts)
             {
                 findResults = er.GetAllEmails(ea.EmailAddress, ea.Password);
-                emails = ew.EmailConverter(findResults, ea.EmailAddress);
+                emails = ew.EmailConverter(findResults);
                 ew.SaveEmails(emails);
                 indexer.IndexAllEmails();
                 foreach (var email in emails)
@@ -160,7 +161,8 @@ namespace WebAPI.Controllers
                     allEmails.Add(email);
                 }
             }
-
+            ThreadManager tm = new ThreadManager();
+            //tm.StartEmailThread();
             return Ok(allEmails);
         }
         [HttpGet]
@@ -168,22 +170,18 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult CheckNewMail()
         {
-            string userName = "klaus@eliteit.dk";
-            string password = "Kg240789.";
-
-
-            EmailReader er = new EmailReader();
-            EmailWriter ew = new EmailWriter();
-            Indexer indexer = new Indexer();
-            List<Email> emails;
-            FindItemsResults<Item> findResults;
-
-            findResults = er.GetNewEmails(userName, password);
-            emails = ew.EmailConverter(findResults, userName);
-            ew.SaveEmails(emails);
-            indexer.IndexAllEmails();
-
-            return Ok(emails);
+            foreach (EmailAccount ea in db.EmailAccounts)
+            {
+                findResults = er.GetNewEmails(ea.EmailAddress, ea.Password);
+                emails = ew.EmailConverter(findResults);
+                ew.SaveEmails(emails);
+                indexer.IndexNewEmails(emails);
+                foreach (var email in emails)
+                {
+                    allEmails.Add(email);
+                }
+            }
+            return Ok(allEmails);
         }
         [HttpGet]
         [Route("Index")]

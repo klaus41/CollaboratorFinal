@@ -38,10 +38,14 @@ namespace WebAPI.EmailManager
 
                 foreach (EmailAccount ea in db.EmailAccounts)
                 {
+
                     findResults = er.GetNewEmails(ea.EmailAddress, ea.Password);
                     emails = ew.EmailConverter(findResults);
-                    ew.SaveEmails(emails);
-                    indexer.IndexNewEmails(emails);
+                    if (emails.Count() != 0 && emails != null)
+                    {
+                        ew.SaveEmails(emails);
+                        indexer.IndexNewEmails(emails);
+                    }
                     foreach (var item in emails)
                     {
                         Debug.WriteLine(item.ID);

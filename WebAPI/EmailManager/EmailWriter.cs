@@ -39,7 +39,7 @@ namespace WebAPI.EmailManager
                 }
                 catch
                 {
-                    
+
                 }
 
                 email.Sender = message.Sender.Address;
@@ -54,22 +54,27 @@ namespace WebAPI.EmailManager
 
         public void SaveEmails(List<Email> emails)
         {
-
-            foreach (var email in emails)
+            using (var ctx = new CollaboratorContext())
             {
-                db.Emails.Add(email);
-            }
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                if (emails.Count() != 0 && emails != null)
                 {
-                    foreach (var validationError in validationErrors.ValidationErrors)
+                    foreach (var email in emails)
                     {
-                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        ctx.Emails.Add(email);
+                    }
+                    try
+                    {
+                        ctx.SaveChanges();
+                    }
+                    catch (DbEntityValidationException dbEx)
+                    {
+                        foreach (var validationErrors in dbEx.EntityValidationErrors)
+                        {
+                            foreach (var validationError in validationErrors.ValidationErrors)
+                            {
+                                Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                            }
+                        }
                     }
                 }
             }

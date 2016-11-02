@@ -89,7 +89,11 @@ namespace WebAPI.EmailManager
                                         email.Subject != null && email.Subject.Contains(c) ||
                                         email.Sender != null && email.Sender.Contains(c))
             {
-                email.SearchCriteria.Add(searchCriteria);
+                //email.SearchCriteria.Add(searchCriteria);
+                if (!searchCriteria.Emails.Contains(email))
+                {
+                    searchCriteria.Emails.Add(email);
+                }
             }
             else { }
 

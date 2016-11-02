@@ -14,11 +14,11 @@ namespace WebAPI.Context
         {
 
 
-            SearchCriteria sc1 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Pro Nummer 9045" });
-            SearchCriteria sc2 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Pro Nummer 3409" });
+            SearchCriteria sc1 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Carsten" });
+            SearchCriteria sc2 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Swienty" });
             SearchCriteria sc3 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Eltavle" });
             SearchCriteria sc4 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Pro Automatic" });
-            SearchCriteria sc5 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Subject" });
+            SearchCriteria sc5 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "EliteIT" });
             SearchCriteria sc6 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Klaus" });
             SearchCriteria sc7 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = new DateTime(2016, 8, 7).ToString() });
             SearchCriteria sc8 = context.SearchCriterias.Add(new SearchCriteria() { Criteria = "Ronni" });
@@ -49,12 +49,11 @@ namespace WebAPI.Context
             //    SearchCriteria = { sc1, sc2 }
             //});
 
-            Theme theme1 = context.Themes.Add(new Theme() { Title = "Pro Nummer 9045", SearchCriterias = { sc1, sc3 } });
-            Theme theme2 = context.Themes.Add(new Theme() { Title = "Pro Nummer 3409", SearchCriterias = { sc2 } });
-            Theme theme3 = context.Themes.Add(new Theme() { Title = "Pro Automatic", SearchCriterias = { sc4 } });
-            Theme theme4 = context.Themes.Add(new Theme() { Title = "Ronni og Klaus", SearchCriterias = { sc6, sc8 } });
-            Theme theme5 = context.Themes.Add(new Theme() { Title = "Subject", SearchCriterias = { sc5 } });
-            Theme theme6 = context.Themes.Add(new Theme() { Title = "2016, 8, 7", SearchCriterias = { sc7 } });
+            Theme theme1 = context.Themes.Add(new Theme() { Title = "Carsten", SearchCriterias = { sc1} });
+            Theme theme2 = context.Themes.Add(new Theme() { Title = "Klaus", SearchCriterias = { sc6 } });
+            Theme theme3 = context.Themes.Add(new Theme() { Title = "EliteIT", SearchCriterias = { sc5, sc1, sc6, sc8 } });
+            Theme theme4 = context.Themes.Add(new Theme() { Title = "Ronni", SearchCriterias = { sc8 } });
+            Theme theme5 = context.Themes.Add(new Theme() { Title = "Swienty", SearchCriterias = { sc2 } });
 
 
 

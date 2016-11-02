@@ -60,10 +60,12 @@
                                     @Html.DisplayFor(modelItem => mail.Subject)
                                 </td>
                                 <td>
-                                    @foreach (var s in mail.SearchCriteria)
-                                    {
-                                        @Html.DisplayFor(modelItem => s.Criteria) <br />
-                                    }
+                                    <select>
+                                        @foreach (var s in mail.SearchCriteria)
+                                        {
+                                            <option>@Html.DisplayFor(modelItem => s.Criteria)</option>
+                                        }
+                                    </select>
                                 </td>
                             </tr>
                         }

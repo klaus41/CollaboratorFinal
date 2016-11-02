@@ -56,17 +56,16 @@
                             @Html.DisplayFor(modelItem => item.Subject)
                         </td>
                         <td>
-                            @foreach (var sc in item.SearchCriteria)
-                            {
-                                foreach (var theme in sc.Themes)
+                            <select>
+                                @foreach (var sc in item.SearchCriteria)
                                 {
-                                    @Html.DisplayFor(modelItem => theme.Title) <br />
+                                    foreach (var theme in sc.Themes)
+                                    {
+                                        <option>@Html.DisplayFor(modelItem => theme.Title)</option>
+                                    }
                                 }
-                            }
+                            </select>
 
-                            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
                         </td>
                     </tr>
                 }

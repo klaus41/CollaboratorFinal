@@ -148,21 +148,24 @@ namespace WebAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult SaveAndIndexEmails()
         {
-        
+
 
             foreach (EmailAccount ea in db.EmailAccounts)
             {
                 findResults = er.GetAllEmails(ea.EmailAddress, ea.Password);
                 emails = ew.EmailConverter(findResults);
-                ew.SaveEmails(emails);
-                indexer.IndexAllEmails();
+                if (emails.Count() != 0 && emails != null)
+                {
+                    ew.SaveEmails(emails);
+                    indexer.IndexAllEmails();
+                }
                 foreach (var email in emails)
                 {
                     allEmails.Add(email);
                 }
             }
             ThreadManager tm = new ThreadManager();
-            //tm.StartEmailThread();
+            tm.StartEmailThread();
             return Ok(allEmails);
         }
         [HttpGet]
@@ -174,8 +177,11 @@ namespace WebAPI.Controllers
             {
                 findResults = er.GetNewEmails(ea.EmailAddress, ea.Password);
                 emails = ew.EmailConverter(findResults);
-                ew.SaveEmails(emails);
-                indexer.IndexNewEmails(emails);
+                if (emails.Count() != 0 && emails != null)
+                {
+                    ew.SaveEmails(emails);
+                    indexer.IndexNewEmails(emails);
+                }
                 foreach (var email in emails)
                 {
                     allEmails.Add(email);

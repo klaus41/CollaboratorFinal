@@ -229,6 +229,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom.css" />
     <Content Include="Content\EliteIT.png" />
     <Content Include="Content\lte\css\AdminLTE.css" />
     <Content Include="Content\lte\css\AdminLTE.min.css" />
@@ -1141,6 +1142,7 @@
     <Content Include="Content\lte\plugins\input-mask\phone-codes\phone-codes.json" />
     <None Include="Properties\PublishProfiles\www.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
+    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />

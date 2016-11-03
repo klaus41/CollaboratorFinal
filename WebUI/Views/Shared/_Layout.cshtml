@@ -15,11 +15,11 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
     <link href="~/Content/lte/css/skins/skin-purple-light.css" rel="stylesheet" />
 
-    <link href="~/Content/Custom.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="~/Scripts/jquery-3.1.0.js"></script>
-    <script src="~/Scripts/Custom.js" type="text/javascript"></script>
+    <link href='~/Content/Custom.css?ver=<%= Application["version"] %>' rel="stylesheet" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js?ver=<%= Application['version'] %>"></script>
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js?ver=<%= Application['version'] %>"></script>
+    <script src="~/Scripts/jquery-3.1.0.js?ver=<%= Application['version'] %>"></script>
+    <script src="~/Scripts/Custom.js?ver=<%= Application['version'] %>" type="text/javascript"></script>
 
 </head>
 <body class="hold-transition skin-purple-light sidebar-mini">

@@ -28,17 +28,20 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-function allowDrop(ev) {
+document.allowDrop = function (ev) {
     ev.preventDefault();
 }
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    console.log("Dragging");
+document.drag = function (ev) {
+    ev.dataTransfer.setData("Text", ev.target.id);
+    console.log("Dragging" + ev.target.id);
 }
 
-function drop(ev) {
+document.drop = function (ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
+    var data = ev.dataTransfer.getData("Text");
+    console.log(data);
+
+    ev.target. appendChild(document.getElementById(data));
+    console.log("Dropping");
 }

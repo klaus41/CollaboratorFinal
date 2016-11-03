@@ -17,5 +17,10 @@ namespace WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        void Application_BeginRequest(Object source, EventArgs e)
+        {
+            Application["version"] = "1.0";
+        }
     }
 }

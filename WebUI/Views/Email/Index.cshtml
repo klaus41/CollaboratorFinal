@@ -12,7 +12,67 @@
             </button>
         </div>
     </div>
+    <div class="box-body">
+        <div id="columnchart_material" class="custom-chart">
+        </div>
+    </div>
 
+    <div class="box-body">
+        <table class="table table-bordered table-stibed dataTable">
+            <thead>
+                <tr role="row">
+                    <th>
+                        Afsender
+                        @*@Html.DisplayNameFor(model => model.Sender)*@
+                    </th>
+                    <th>
+                        Modtager
+                        @*@Html.DisplayNameFor(model => model.Recipiant)*@
+                    </th>
+                    <th>
+                        Dato - Modtaget
+                        @*@Html.DisplayNameFor(model => model.ReceivedDate)*@
+                    </th>
+                    <th>
+                        Emne
+                        @*@Html.DisplayNameFor(model => model.Subject)*@
+                    </th>
+                    <th>Temaer</th>
+                </tr>
+            </thead>
+            <tbody >
+                @foreach (var item in Model)
+            {
+                    <tr id="drag" role="row" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Recipiant)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReceivedDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td>
+                            <select>
+                                @foreach (var sc in item.SearchCriteria)
+                                {
+                                    foreach (var theme in sc.Themes)
+                                    {
+                                        <option>@Html.DisplayFor(modelItem => theme.Title)</option>
+                                    }
+                                }
+                            </select>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
     <div class="box-body">
         <div id="columnchart_material" class="custom-chart">
@@ -42,10 +102,10 @@
                     <th>Temaer</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody ondrop="drop(event)" ondragover="allowDrop(event)">
                 @foreach (var item in Model)
             {
-                    <tr role="row" draggable="true" ondragstart="drag(event)">
+                    <tr id="drag1" role="row" draggable="true" ondragstart="drag(event)" >
                         <td>
                             @Html.DisplayFor(modelItem => item.Sender)
                         </td>

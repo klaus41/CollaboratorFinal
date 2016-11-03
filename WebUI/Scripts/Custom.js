@@ -23,8 +23,22 @@ function drawChart() {
         }
     };
 
-    var chart = new google.charts.Bar(document.getElementById('columnchart_material2z'));
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
     chart.draw(data, options);
+}
 
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    console.log("Dragging");
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }

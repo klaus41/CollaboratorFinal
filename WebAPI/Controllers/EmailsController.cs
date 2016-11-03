@@ -165,7 +165,7 @@ namespace WebAPI.Controllers
                 }
             }
             ThreadManager tm = new ThreadManager();
-            tm.StartEmailThread();
+            //tm.StartEmailThread();
             return Ok(allEmails);
         }
         [HttpGet]

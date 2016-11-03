@@ -45,7 +45,7 @@
             <tbody>
                 @foreach (var item in Model)
             {
-                    <tr role="row">
+                    <tr role="row" draggable="true" ondragstart="drag(event)">
                         <td>
                             @Html.DisplayFor(modelItem => item.Sender)
                         </td>

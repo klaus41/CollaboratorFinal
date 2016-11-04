@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebUI.Models.NavisonContactModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Navision Contacts</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company_Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company_Name)
+        </td>
+
+    </tr>
+}
+
+</table>

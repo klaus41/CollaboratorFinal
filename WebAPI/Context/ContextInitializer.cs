@@ -25,29 +25,29 @@ namespace WebAPI.Context
 
 
 
-            //Email email1 = context.Emails.Add(new Email()
-            //{
+            Email email1 = context.Emails.Add(new Email()
+            {
 
-            //    BodyText = "Første bodytext Første bodytext Første bodytext Første bodytext Første bodytext Første bodytext" +
-            //                "Første bodytext Første bodytext Første bodytext Første bodytext ",
-            //    Recipiant = "klausgaarde@live.dk",
-            //    Sender = "Carsten@eliteit.dk",
-            //    Subject = "Collaborator",
-            //    ReceivedDate = new DateTime(2014, 8, 7),
-            //    SearchCriteria = { sc1, sc4 }
-            //});
+                BodyText = "Første bodytext Første bodytext Første bodytext Første bodytext Første bodytext Første bodytext" +
+                            "Første bodytext Første bodytext Første bodytext Første bodytext ",
+                Recipiant = "klausgaarde@live.dk",
+                Sender = "Carsten@eliteit.dk",
+                Subject = "Collaborator",
+                ReceivedDate = new DateTime(2014, 8, 7),
+                SearchCriteria = { sc1, sc4 }
+            });
 
-            //Email email2 = context.Emails.Add(new Email()
-            //{
+            Email email2 = context.Emails.Add(new Email()
+            {
 
-            //    BodyText = "Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden" +
-            //                "Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden bodytext ",
-            //    Recipiant = "klausgaarde@live.dk",
-            //    Sender = "Carsten@eliteit.dk",
-            //    Subject = "Arbejder",
-            //    ReceivedDate = new DateTime(2015, 7, 8),
-            //    SearchCriteria = { sc1, sc2 }
-            //});
+                BodyText = "Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden" +
+                            "Anden bodytext Anden bodytext Anden bodytext Anden bodytext Anden bodytext ",
+                Recipiant = "klausgaarde@live.dk",
+                Sender = "Carsten@eliteit.dk",
+                Subject = "Arbejder",
+                ReceivedDate = new DateTime(2015, 7, 8),
+                SearchCriteria = { sc1, sc2 }
+            });
 
             Theme theme1 = context.Themes.Add(new Theme() { Title = "Carsten", SearchCriterias = { sc1} });
             Theme theme2 = context.Themes.Add(new Theme() { Title = "Klaus", SearchCriterias = { sc6 } });
@@ -58,7 +58,7 @@ namespace WebAPI.Context
 
 
             EmailAccount account1 = context.EmailAccounts.Add(new EmailAccount() { EmailAddress = "Klaus@eliteit.dk", Password = "Kg240789." });
-            //EmailAccount account2 = context.EmailAccounts.Add(new EmailAccount() { EmailAddress = "ronni@eliteit.dk", Password = "oz1akhEI" });
+            EmailAccount account2 = context.EmailAccounts.Add(new EmailAccount() { EmailAddress = "ronni@eliteit.dk", Password = "oz1akhEI" });
 
             base.Seed(context);
         }

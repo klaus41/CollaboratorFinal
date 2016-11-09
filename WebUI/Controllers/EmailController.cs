@@ -19,7 +19,7 @@ namespace WebUI.Controllers
         // GET: Email/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_gateway.GetEmail(id));
         }
 
         // GET: Email/Create

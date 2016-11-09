@@ -27,6 +27,15 @@ namespace Webui.ServiceGateway
             return themes;
         }
 
+        public Email GetEmail(int id)
+        {
+            HttpClient client = GetHttpClient();
+
+            HttpResponseMessage response = client.GetAsync("api/emails/" + id).Result;
+            var email = response.Content.ReadAsAsync<Email>().Result;
+            return email;
+        }
+
         public Theme GetTheme(int id)
         {
             HttpClient client = GetHttpClient();

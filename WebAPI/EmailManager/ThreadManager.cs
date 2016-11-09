@@ -27,7 +27,7 @@ namespace WebAPI.EmailManager
             done = false;
             thread = new Thread(new ThreadStart(DoWork));
             thread.Start();
-            
+
         }
 
         private void DoWork()
@@ -53,7 +53,26 @@ namespace WebAPI.EmailManager
                 }
                 Thread.Sleep(60000);
             }
-            
+
         }
+
+        public void Start()
+        {
+            if (db.Emails.Count() == 0 || db.Emails == null)
+            {
+                foreach (EmailAccount ea in db.EmailAccounts)
+                {
+                    findResults = er.GetAllEmails(ea.EmailAddress, ea.Password);
+                    emails = ew.EmailConverter(findResults);
+                    if (emails.Count() != 0 && emails != null)
+                    {
+                        ew.SaveEmails(emails);
+                        indexer.IndexAllEmails();
+                    }
+                }
+            }
+            StartEmailThread();
+        }
+
     }
 }

@@ -33,18 +33,41 @@ namespace WebAPI.EmailManager
 
                 email = new Email();
                 email.BodyText = item.Body;
-                try
+                if (message.ReceivedBy != null)
                 {
                     email.Recipiant = message.ReceivedBy.Address;
                 }
-                catch
+                else
                 {
-
+                    email.Recipiant = "Modtager untilgængelig";
                 }
 
-                email.Sender = message.Sender.Address;
-                email.ReceivedDate = item.DateTimeReceived;
-                email.Subject = item.Subject;
+                if (message.Sender != null)
+                {
+                    email.Sender = message.Sender.Address;
+                }
+                else
+                {
+                    email.Sender = "Afsender utilgængelig";
+                }
+
+                if (item.DateTimeReceived != null && item.DateTimeReceived > new DateTime(1950, 1, 1))
+                {
+                    email.ReceivedDate = item.DateTimeReceived;
+                }
+                else
+                {
+                    email.ReceivedDate = new DateTime(2000, 1, 1);
+                }
+
+                if (item.Subject != null)
+                {
+                    email.Subject = item.Subject;
+                }
+                else
+                {
+                    email.Subject = "Emne utilgængelig";
+                }
 
                 emails.Add(email);
             }

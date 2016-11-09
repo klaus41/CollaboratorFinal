@@ -35,7 +35,7 @@ namespace WebAPI.EmailManager
             }
             db.SaveChanges();
 
-            debug();
+            //debug();
 
         }
 

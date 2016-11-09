@@ -8,7 +8,7 @@ using WebAPI.Models;
 
 namespace WebAPI.Context
 {
-    public class ContextInitializer : DropCreateDatabaseAlways<CollaboratorContext>
+    public class ContextInitializer : DropCreateDatabaseIfModelChanges<CollaboratorContext>
     {
         protected override void Seed(CollaboratorContext context)
         {

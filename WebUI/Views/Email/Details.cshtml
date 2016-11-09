@@ -1,0 +1,61 @@
+﻿@model WebUI.Models.Email
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="box box-solid box-default ">
+    <div class="box-header with-border">
+        <h3 class="box-title">Email Nr: @Html.DisplayFor(model => model.ID)</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fa fa-angle-down"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <h4>Email</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Afsender
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sender)
+            </dd>
+
+            <dt>
+                Modtager
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Recipiant)
+            </dd>
+
+            <dt>
+                Dato
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReceivedDate)
+            </dd>
+
+            <dt>
+                Emne
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+
+            <dt>
+                Besked
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BodyText)
+            </dd>
+
+        </dl>
+    </div>
+</div>

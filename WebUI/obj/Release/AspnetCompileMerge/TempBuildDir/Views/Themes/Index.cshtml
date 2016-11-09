@@ -50,17 +50,17 @@
                 {
                     foreach (var mail in sc.Emails)
                     {
-                            <tr role="row">
-                                <td>
+                            <tr role="row" draggable="true">
+                                <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
                                     @Html.DisplayFor(modelItem => mail.Sender)
                                 </td>
-                                <td>
+                                <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
                                     @Html.DisplayFor(modelItem => mail.Recipiant)
                                 </td>
-                                <td>
+                                <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
                                     @Html.DisplayFor(modelItem => mail.ReceivedDate)
                                 </td>
-                                <td>
+                                <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
                                     @Html.DisplayFor(modelItem => mail.Subject)
                                 </td>
                                 <td>

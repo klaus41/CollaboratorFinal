@@ -41,24 +41,24 @@
                 </tr>
             </thead>
             <tbody >
-                @foreach (var item in Model)
+                @foreach (var mail in Model)
             {
                     <tr id="drag" role="row" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Sender)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.Sender)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Recipiant)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.Recipiant)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ReceivedDate)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.ReceivedDate)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Subject)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.Subject)
                         </td>
                         <td>
                             <select>
-                                @foreach (var sc in item.SearchCriteria)
+                                @foreach (var sc in mail.SearchCriteria)
                                 {
                                     foreach (var theme in sc.Themes)
                                     {
@@ -103,24 +103,24 @@
                 </tr>
             </thead>
             <tbody ondrop="drop(event)" ondragover="allowDrop(event)">
-                @foreach (var item in Model)
+                @foreach (var mail in Model)
             {
-                    <tr id="drag1" role="row" draggable="true" ondragstart="drag(event)" >
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Sender)
+                    <tr id="drag" role="row" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.Sender)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Recipiant)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.Recipiant)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ReceivedDate)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.ReceivedDate)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Subject)
+                        <td class="clickable-row" data-href="@Url.Action("Details", "Email", new { id = mail.ID })">
+                            @Html.DisplayFor(modelItem => mail.Subject)
                         </td>
                         <td>
                             <select>
-                                @foreach (var sc in item.SearchCriteria)
+                                @foreach (var sc in mail.SearchCriteria)
                                 {
                                     foreach (var theme in sc.Themes)
                                     {

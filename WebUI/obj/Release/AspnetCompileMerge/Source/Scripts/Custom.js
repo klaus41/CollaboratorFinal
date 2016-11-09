@@ -34,14 +34,43 @@ document.allowDrop = function (ev) {
 
 document.drag = function (ev) {
     ev.dataTransfer.setData("Text", ev.target.id);
-    console.log("Dragging" + ev.target.id);
 }
 
 document.drop = function (ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("Text");
-    console.log(data);
 
     ev.target. appendChild(document.getElementById(data));
     console.log("Dropping");
 }
+
+
+jQuery(document).ready(function ($) {
+    $(".clickable-row").click(function () {
+        window.document.location = $(this).data("href");
+    });
+});
+
+jQuery(document).ready(function () {
+
+    var $tabs = $('#table-draggable2')
+    $("tbody.connectedSortable")
+        .sortable({
+            connectWith: ".connectedSortable",
+            items: "> tr:not(:first)",
+            appendTo: $tabs,
+            helper: "clone",
+            zIndex: 999990
+        })
+        .disableSelection();
+
+    var $tab_items = $(".nav-tabs > li", $tabs).droppable({
+        accept: ".connectedSortable tr",
+        hoverClass: "ui-state-hover",
+
+        drop: function (event, ui) {
+            return false;
+        }
+    });
+
+});
